@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.main-header {
+    height: 75px;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    z-index: 10000;
+}
+
+.main-section {
+    width: 100%;
+    height: 100%;
+    margin-top: 75px;
+    background-image: url('/images/city_image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+h1 {
+    font-weight: bolder;
+    color:teal;
+}
+
+.container {
+    display: flex;
+    height: 800px;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    color: teal;
+    font-size: larger;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        color: whitesmoke;
+        box-shadow: inset 0 0 20px rgba(3,0,0,0.5);
+        background-color: rgba(0,0,0,0.2);
+    }
+}
+
+.left-side {
+    max-width: 800px;
+}
+
+.about-page {
+    background-color: whitesmoke;
+    width: 100%;
+}
+
+.about {
+    background-color: whitesmoke;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.about h1 {
+    color: teal;
+    font-size: 2em;
+    font-weight: bolder;
+}

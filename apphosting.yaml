@@ -1,0 +1,41 @@
+# Firebase App Hosting configuration
+#
+# Public environment variables sourced from Firebase App Hosting secrets.
+# Populate them with `firebase apphosting:secrets:set` and ensure the backend
+# has access to each secret.
+env:
+  - variable: NEXT_PUBLIC_ENDPOINT
+    secret: NEXT_PUBLIC_ENDPOINT
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_API_DOMAIN
+    secret: NEXT_PUBLIC_API_DOMAIN
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_UNSUBSCRIBE_ENDPOINT
+    secret: NEXT_PUBLIC_UNSUBSCRIBE_ENDPOINT
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_LOGIN_DOMAIN
+    secret: NEXT_PUBLIC_LOGIN_DOMAIN
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_WEBSITE_DOMAIN
+    secret: NEXT_PUBLIC_WEBSITE_DOMAIN
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_RECAPTCHA
+    secret: NEXT_PUBLIC_RECAPTCHA
+    availability:
+      - BUILD
+      - RUNTIME
