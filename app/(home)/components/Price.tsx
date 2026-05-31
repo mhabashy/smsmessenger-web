@@ -25,7 +25,7 @@ export default function Price() {
       return (
         <Card withBorder radius="lg" className={classes.card}>
           <div className={classes.imageSection}>
-            <Image src="/favicon.svg" width="180" height="180" alt="SMS Messenger" />
+            <Image src="/favicon.ico" width="180" height="180" alt="SMS Messenger" />
           </div>
     
           <Group justify="space-between" mt="md">

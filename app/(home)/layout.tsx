@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <ColorSchemeScript />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
@@ -63,14 +63,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             function gtag(){window.dataLayer.push(arguments);}
             gtag('js', new Date());
   
-            gtag('config', 'G-CL4LDEJR4F');
+            gtag('config', 'G-HVXPQF0BRK');
           `}
         </Script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-16644293802"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        {/* <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}
@@ -78,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   
             gtag('config', 'AW-16644293802');
           `}
-        </Script>
+        </Script> */}
       </head>
       <body>
         <MantineProvider theme={theme}>
