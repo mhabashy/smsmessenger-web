@@ -1,15 +1,15 @@
 // @ts-ignore
-import "@mantine/core/styles.css";
-import React from "react";
-import { MantineProvider, ColorSchemeScript } from "@mantine/core";
-import { theme } from "../../../theme";
-import { Notifications } from "@mantine/notifications";
+import '@mantine/core/styles.css';
+import React from 'react';
+import { MantineProvider, ColorSchemeScript } from '@mantine/core';
+import { theme } from '../../../theme';
+import { Notifications } from '@mantine/notifications';
 // @ts-ignore
-import "./unsubscribe.css";
+import './unsubscribe.css';
 
 export const metadata = {
-  title: "SMS Messenger - Manage SMS Preferences",
-  description: "Manage your SMS Messenger opt-in and unsubscribe preferences.",
+  title: 'SMS Messenger - Manage SMS Preferences',
+  description: 'Manage your SMS Messenger opt-in and unsubscribe preferences.',
 };
 
 export default function UnsubscribeLayout({ children }: { children: React.ReactNode }) {
@@ -26,7 +26,11 @@ export default function UnsubscribeLayout({ children }: { children: React.ReactN
       <body>
         <MantineProvider theme={theme}>
           {children}
-          <Notifications className="notification-container" position="bottom-center" zIndex={1000} />
+          <Notifications
+            className="notification-container"
+            position="bottom-center"
+            zIndex={1000}
+          />
         </MantineProvider>
       </body>
     </html>
