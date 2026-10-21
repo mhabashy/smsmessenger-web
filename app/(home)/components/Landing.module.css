@@ -1,0 +1,358 @@
+/* =========================================================
+   Landing hero — clean, restrained, professional
+   ========================================================= */
+
+.section {
+  --brand: #4f46e5;
+  --brand-hover: #4338ca;
+  --brand-soft: rgba(79, 70, 229, 0.08);
+  --heading: #0f172a;
+  --body: #475569;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --surface: #ffffff;
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  margin-top: 75px;
+  padding-top: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: clamp(3rem, 7vw, 5.5rem);
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+[data-mantine-color-scheme='dark'] .section {
+  --brand: #818cf8;
+  --brand-hover: #a5b4fc;
+  --brand-soft: rgba(129, 140, 248, 0.12);
+  --heading: #f1f5f9;
+  --body: #cbd5e1;
+  --muted: #94a3b8;
+  --border: #1e293b;
+  --surface: #0f172a;
+
+  background: linear-gradient(180deg, #0b1120 0%, #0f172a 100%);
+}
+
+/* Soft brand glow behind the hero — static, not distracting */
+.section::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -30%;
+  left: 50%;
+  width: min(1100px, 140vw);
+  aspect-ratio: 2 / 1;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, var(--brand-soft), transparent);
+  pointer-events: none;
+}
+
+/* Fine grid, faded at the edges */
+.section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.5;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 20%, transparent 75%);
+  pointer-events: none;
+}
+
+/* ---------- Layout ---------- */
+.inner {
+  max-width: 1180px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+@media (min-width: 62em) {
+  .inner {
+    flex-direction: row;
+  }
+}
+
+.content {
+  text-align: center;
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 62em) {
+  .content {
+    flex: 0 1 34rem;
+    text-align: left;
+    margin-inline: 0;
+  }
+}
+
+/* ---------- Eyebrow ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.3rem 0.8rem 0.3rem 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--body);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.eyebrowTag {
+  padding: 0.1rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--brand);
+  border-radius: 999px;
+}
+
+/* ---------- Typography ---------- */
+.title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.125rem, 4.8vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--heading);
+  text-wrap: balance;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+.description {
+  margin: 0 auto 2.25rem;
+  max-width: 36rem;
+  font-size: clamp(1rem, 1.6vw, 1.175rem);
+  line-height: 1.7;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+@media (min-width: 62em) {
+  .description {
+    margin-left: 0;
+  }
+}
+
+/* ---------- Actions ---------- */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+@media (min-width: 30em) {
+  .actions {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 62em) {
+  .actions {
+    justify-content: flex-start;
+  }
+}
+
+.actions a {
+  text-decoration: none;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  width: 100%;
+  height: 3rem;
+  padding-inline: 1.5rem;
+  font-size: 0.975rem;
+  font-weight: 600;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+@media (min-width: 30em) {
+  .primaryBtn,
+  .secondaryBtn {
+    width: auto;
+  }
+}
+
+.primaryBtn {
+  --button-bg: var(--brand);
+  --button-hover: var(--brand-hover);
+  --button-color: #fff;
+  background-color: var(--brand);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.08),
+    0 6px 16px -6px rgba(79, 70, 229, 0.45);
+}
+
+.primaryBtn:hover {
+  background-color: var(--brand-hover);
+  transform: translateY(-1px);
+}
+
+.primaryBtn .arrow {
+  transition: transform 160ms ease;
+}
+
+.primaryBtn:hover .arrow {
+  transform: translateX(3px);
+}
+
+.secondaryBtn {
+  color: var(--heading);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.secondaryBtn:hover {
+  border-color: var(--muted);
+  background-color: var(--surface);
+  transform: translateY(-1px);
+}
+
+/* ---------- Trust points ---------- */
+.points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 1.5rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+@media (min-width: 62em) {
+  .points {
+    justify-content: flex-start;
+  }
+}
+
+.points li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.pointIcon {
+  color: var(--brand);
+  flex-shrink: 0;
+}
+
+/* ---------- Media ---------- */
+.media {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 62em) {
+  .media {
+    flex: 0 1 34rem;
+  }
+}
+
+.mediaFrame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 540px;
+  margin-inline: auto;
+}
+
+.mediaFrame img,
+.mediaFrame svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- Entrance motion (subtle) ---------- */
+.reveal {
+  opacity: 0;
+  animation: reveal 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.d1 {
+  animation-delay: 60ms;
+}
+.d2 {
+  animation-delay: 140ms;
+}
+.d3 {
+  animation-delay: 220ms;
+}
+.d4 {
+  animation-delay: 300ms;
+}
+.d5 {
+  animation-delay: 380ms;
+}
+
+.revealMedia {
+  opacity: 0;
+  animation: revealMedia 900ms cubic-bezier(0.16, 1, 0.3, 1) 200ms forwards;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes revealMedia {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .revealMedia {
+    opacity: 1;
+    animation: none;
+  }
+
+  .primaryBtn,
+  .secondaryBtn,
+  .primaryBtn .arrow {
+    transition: none;
+  }
+}

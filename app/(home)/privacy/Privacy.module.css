@@ -1,8 +1,406 @@
+/* =========================================================
+   Privacy Policy page — matches Landing / Contact / About
+   ========================================================= */
 
-  .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 50px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.section {
+  --brand: #4f46e5;
+  --brand-hover: #4338ca;
+  --brand-2: #06b6d4;
+  --brand-soft: rgba(79, 70, 229, 0.08);
+  --heading: #0f172a;
+  --body: #475569;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --surface: #ffffff;
+  --surface-subtle: #f8fafc;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  margin-top: 75px;
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-bottom: clamp(4rem, 8vw, 6.5rem);
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+[data-mantine-color-scheme='dark'] .section {
+  --brand: #818cf8;
+  --brand-hover: #a5b4fc;
+  --brand-2: #22d3ee;
+  --brand-soft: rgba(129, 140, 248, 0.12);
+  --heading: #f1f5f9;
+  --body: #cbd5e1;
+  --muted: #94a3b8;
+  --border: #1e293b;
+  --surface: #0f172a;
+  --surface-subtle: #0b1120;
+
+  background: linear-gradient(180deg, #0b1120 0%, #0f172a 100%);
+}
+
+/* Soft brand glow behind the header */
+.section::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -20%;
+  left: 50%;
+  width: min(1100px, 140vw);
+  aspect-ratio: 2 / 1;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, var(--brand-soft), transparent);
+  pointer-events: none;
+}
+
+/* Fine grid faded at the edges */
+.section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.5;
+  mask-image: radial-gradient(ellipse 60% 40% at 50% 18%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 40% at 50% 18%, #000 20%, transparent 75%);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+/* ---------- Header ---------- */
+.header {
+  max-width: 52rem;
+  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--brand);
+  background: var(--brand-soft);
+  border: 1px solid color-mix(in srgb, var(--brand) 25%, transparent);
+  border-radius: 999px;
+}
+
+.heading {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4.2vw, 3.125rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--heading);
+  text-wrap: balance;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+.lead {
+  margin: 0;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.75;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+/* ---------- Two-column layout (TOC + Content) ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+@media (min-width: 62em) {
+  .layout {
+    grid-template-columns: 260px minmax(0, 1fr);
   }
+}
+
+/* ---------- Table of Contents ---------- */
+.toc {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+@media (min-width: 62em) {
+  .toc {
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+.tocTitle {
+  margin: 0 0 0.75rem;
+  padding-inline: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tocList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.tocLink {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--body);
+  text-decoration: none;
+  border-radius: 8px;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    transform 150ms ease;
+}
+
+.tocLink:hover {
+  color: var(--brand);
+  background: var(--brand-soft);
+  transform: translateX(2px);
+}
+
+.tocIndex {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Policy cards ---------- */
+.content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  scroll-margin-top: 6rem;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--brand) 30%, var(--border));
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 14px 30px -18px rgba(79, 70, 229, 0.22);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.cardIcon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: var(--brand);
+  background: var(--brand-soft);
+  border-radius: 11px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--heading);
+}
+
+.paragraph {
+  margin: 0;
+  font-size: 0.975rem;
+  line-height: 1.75;
+  color: var(--body);
+}
+
+/* ---------- Collected items grid ---------- */
+.collectList {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.collectItem {
+  padding: 1rem 1.15rem;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.collectLabel {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.collectDesc {
+  margin: 0;
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+/* ---------- Check list ---------- */
+.checkList {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--body);
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--brand);
+}
+
+/* ---------- Contact CTA banner ---------- */
+.ctaCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  scroll-margin-top: 6rem;
+  background:
+    radial-gradient(ellipse 60% 120% at 100% 0%, var(--brand-soft), transparent 70%),
+    var(--surface);
+  border: 1px solid color-mix(in srgb, var(--brand) 30%, var(--border));
+  border-radius: 18px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 16px 36px -22px rgba(79, 70, 229, 0.28);
+}
+
+@media (min-width: 42em) {
+  .ctaCard {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.ctaBody {
+  max-width: 36rem;
+}
+
+.ctaButton {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.875rem;
+  padding-inline: 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--brand);
+  border-radius: 10px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.08),
+    0 8px 20px -8px rgba(79, 70, 229, 0.55);
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.ctaButton:hover {
+  background: var(--brand-hover);
+  transform: translateY(-1px);
+}
+
+.ctaArrow {
+  transition: transform 160ms ease;
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translateX(3px);
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease),
+    transform 650ms var(--ease),
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.reveal[data-visible='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal[data-visible='true'] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .section *,
+  .section *::before,
+  .section *::after {
+    transition: none !important;
+  }
+}

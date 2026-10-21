@@ -4,19 +4,16 @@ import Features from './components/Features';
 import About from './components/About';
 import Price from './components/Price';
 import Footer from './components/Footer';
-import { Divider, Flex } from '@mantine/core';
 
 export default function HomePage() {
   return (
-    <Flex direction="column">
+    <main>
       <Landing />
-      <Divider />
       <Features />
-      <Divider />
       <About />
-      <Divider />
       <Price />
       <Footer />
-    </Flex>
+    </main>
   );
 }
+
