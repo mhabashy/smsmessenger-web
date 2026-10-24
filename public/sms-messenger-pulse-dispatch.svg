@@ -1,0 +1,18 @@
+<svg width="128" height="128" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="smsGrad_0_0_128" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="smsSubGrad_0_0_128" x1="16" y1="16" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#smsGrad_0_0_128)"/>
+  <rect x="5" y="5" width="54" height="54" rx="15" stroke="white" stroke-opacity="0.22" stroke-width="1.5"/>
+  <path d="M16 23C16 18.5817 19.5817 15 24 15H40C44.4183 15 48 18.5817 48 23V35C48 39.4183 44.4183 43 40 43H27.5L19.2 49.4C17.9 50.4 16 49.48 16 47.82V23Z" fill="url(#smsSubGrad_0_0_128)"/>
+  <path d="M23 28.5L41 21.5L35.5 37.5L30.5 32.5L23 28.5Z" fill="url(#smsGrad_0_0_128)"/>
+  <path d="M30.5 32.5L41 21.5" stroke="white" stroke-width="1.75" stroke-linecap="round"/>
+  <circle cx="51" cy="15" r="3" fill="#22d3ee" stroke="white" stroke-width="1.5"/>
+</svg>

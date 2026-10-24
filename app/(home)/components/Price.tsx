@@ -28,7 +28,7 @@ export default function Price() {
         <div className={classes.header}>
           <div className={classes.brand}>
             <span className={classes.logo}>
-              <Image src="/favicon.ico" width={40} height={40} alt="SMS Messenger" />
+              <Image src="/sms-messenger-pulse-dispatch.svg" width={52} height={52} alt="SMS" />
             </span>
             <div>
               <h3 className={classes.plan}>Standard Flat Fee</h3>
@@ -47,7 +47,6 @@ export default function Price() {
           provider account.
         </p>
 
-        {/* ---------- Price ---------- */}
         <div className={classes.priceRow}>
           <span className={classes.currency}>$</span>
           <span className={classes.amount}>9.99</span>
@@ -78,4 +77,3 @@ export default function Price() {
     </div>
   );
 }
-
