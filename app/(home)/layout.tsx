@@ -1,15 +1,12 @@
 import '@mantine/core/styles.css';
 import React from 'react';
-import { Button, ColorSchemeScript, Flex, MantineProvider } from '@mantine/core';
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { theme } from '../../theme';
 
-import BulkMailerProLogo from '../components/BulkMailerProLogo/BulkMailerProLogo';
-import { IconLogin } from '@tabler/icons-react';
-
 import './main.css';
-import Link from 'next/link';
 import Script from 'next/script';
 import type { Metadata } from 'next';
+import HeaderActions from './components/HeaderActions';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_WEBSITE_DOMAIN || 'https://smsmesengerio.web.app'),
@@ -65,35 +62,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           src="https://www.googletagmanager.com/gtag/js?id=AW-16644293802"
           strategy="afterInteractive"
         />
-        {/* <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-  
-            gtag('config', 'AW-16644293802');
-          `}
-        </Script> */}
       </head>
       <body>
         <MantineProvider theme={theme}>
-          <div className="main-header">
-            <Flex
-              direction="row"
-              className="p-2 main-header"
-              justify="space-between"
-              align="center"
-            >
-              <BulkMailerProLogo />
-              <Flex direction="row" p="xs">
-                <Link href={`${process.env.NEXT_PUBLIC_LOGIN_DOMAIN}`}>
-                  <Button size="xs" leftSection={<IconLogin />} variant="default" color="gray">
-                    Open App
-                  </Button>
-                </Link>
-              </Flex>
-            </Flex>
-          </div>
+          <HeaderActions />
           {children}
         </MantineProvider>
       </body>

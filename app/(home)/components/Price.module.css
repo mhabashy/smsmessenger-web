@@ -17,7 +17,9 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: clamp(1rem, 4vw, 2rem);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  background: #f8fafc;
 }
 
 [data-mantine-color-scheme='dark'] .wrap {
@@ -30,6 +32,8 @@
   --muted: #94a3b8;
   --border: #1e293b;
   --surface: #0f172a;
+
+  background: #0b1120;
 }
 
 /* ---------- Card ---------- */

@@ -14,9 +14,16 @@ html {
   height: 75px;
   position: fixed;
   top: 0;
-  background-color: white;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
   width: 100%;
   z-index: 10000;
+}
+[data-mantine-color-scheme='dark'] .main-header {
+  background-color: rgba(11, 17, 32, 0.88);
+  border-bottom-color: #1e293b;
 }
 
 .main-section {
